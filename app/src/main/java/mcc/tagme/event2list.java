@@ -8,6 +8,10 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+
+import static mcc.tagme.NewsFragment.positionid;
 
 public class event2list extends AppCompatActivity {
 
@@ -21,5 +25,13 @@ public class event2list extends AppCompatActivity {
             NewsFragment newsFragment = (NewsFragment) getSupportFragmentManager().findFragmentById(R.id.news_fragment2);
             newsFragment.updateArticleView(position);
         }
+    }
+
+
+    public void registerbutton(View view){
+        int positionval = positionid;
+        Log.i("hi","pressed register button for id  " + Integer.toString(positionid));
+
+
     }
 }

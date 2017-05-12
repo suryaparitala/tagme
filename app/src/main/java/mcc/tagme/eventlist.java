@@ -5,6 +5,9 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+
+import static mcc.tagme.NewsFragment.positionid;
 
 /**
  * Created by suryanarayana on 5/4/17.
@@ -24,8 +27,8 @@ public class eventlist extends AppCompatActivity implements HeadlineFragment.OnH
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
         {
-            NewsFragment newsFragment = (NewsFragment) getSupportFragmentManager().findFragmentById(R.id.news_fragment);
-            newsFragment.updateArticleView(position);
+           NewsFragment newsFragment = (NewsFragment) getSupportFragmentManager().findFragmentById(R.id.news);
+           newsFragment.updateArticleView(position);
         }
         else {
             Intent myIntent = new Intent(eventlist.this, event2list.class);
@@ -34,5 +37,8 @@ public class eventlist extends AppCompatActivity implements HeadlineFragment.OnH
         }
 
     }
+
+
+
 }
 

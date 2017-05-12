@@ -7,8 +7,8 @@ package mcc.tagme;
 public class Ipsum {
 
     static String[] Headlines = {
-            "Article One",
-            "Article Two"
+            "Mobile Cloud computing ",
+            "Pattern Recognition"
 
 
     };

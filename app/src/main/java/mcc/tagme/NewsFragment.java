@@ -2,15 +2,19 @@ package mcc.tagme;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 
 public class NewsFragment extends Fragment {
     final static String ARG_POSITION = "position";
     int mCurrentPosition = -1;
+    static  public int positionid ;
 
 
     @Override
@@ -19,8 +23,15 @@ public class NewsFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_news, container, false);
-    }
 
+    }
+   // @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(android.R.layout.fragment_news);
+//        Button btn=  (Button) findViewById(R.id.change_password_button);
+//       setListAdapter(new ArrayAdapter<String>(getActivity(), layout, Ipsum.Headlines));
+//    }
     @Override
     public void onStart() {
         super.onStart();
@@ -29,6 +40,7 @@ public class NewsFragment extends Fragment {
         // onStart is a good place to do this because the layout has already been
         // applied to the fragment at this point so we can safely call the method
         // below that sets the article text.
+
         Bundle args = getArguments();
         if (args != null) {
             // Set article based on argument passed in
@@ -40,10 +52,14 @@ public class NewsFragment extends Fragment {
     }
 
     public void updateArticleView(int position) {
+
+        positionid = position;
+
         TextView article = (TextView) getActivity().findViewById(R.id.news);
         article.setText(Ipsum.Articles[position]);
         mCurrentPosition = position;
     }
+
 
 
     @Override

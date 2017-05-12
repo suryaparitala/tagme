@@ -26,6 +26,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static mcc.tagme.LoginActivity.test;
+
 
 public class latlang extends AppCompatActivity {
 
@@ -54,6 +56,7 @@ public class latlang extends AppCompatActivity {
 //       latitudeValueGPS = (TextView) findViewById(R.id.latitudeValueGPS);
 //        longitudeValueNetwork = (TextView) findViewById(R.id.longitudeValueNetwork);
 //       latitudeValueNetwork = (TextView) findViewById(R.id.latitudeValueNetwork);
+
     }
 
     private boolean checkLocation() {
