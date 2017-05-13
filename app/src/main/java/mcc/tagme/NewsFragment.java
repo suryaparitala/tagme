@@ -1,5 +1,6 @@
 package mcc.tagme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -10,11 +11,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.HashSet;
+
 
 public class NewsFragment extends Fragment {
     final static String ARG_POSITION = "position";
     int mCurrentPosition = -1;
     static  public int positionid ;
+    public static HashSet<Integer> registerlist = new HashSet<Integer>();
 
 
     @Override
@@ -54,6 +58,7 @@ public class NewsFragment extends Fragment {
     public void updateArticleView(int position) {
 
         positionid = position;
+        registerlist.add(position);
 
         TextView article = (TextView) getActivity().findViewById(R.id.news);
         article.setText(Ipsum.Articles[position]);

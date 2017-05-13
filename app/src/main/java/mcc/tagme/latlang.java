@@ -38,6 +38,9 @@ public class latlang extends AppCompatActivity {
     TextView longitudeValueBest, latitudeValueBest;
     TextView longitudeValueGPS, latitudeValueGPS;
     TextView longitudeValueNetwork, latitudeValueNetwork;
+    public static Double sharelongitudeBest;
+    public static Double shareLatitudeBest;
+    public static String shareIMEI;
 
 
     @Override
@@ -56,6 +59,8 @@ public class latlang extends AppCompatActivity {
 //       latitudeValueGPS = (TextView) findViewById(R.id.latitudeValueGPS);
 //        longitudeValueNetwork = (TextView) findViewById(R.id.longitudeValueNetwork);
 //       latitudeValueNetwork = (TextView) findViewById(R.id.latitudeValueNetwork);
+
+
 
     }
 
@@ -125,6 +130,7 @@ public class latlang extends AppCompatActivity {
             button.setText(R.string.resume);
             TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
             final String imei_val =  telephonyManager.getDeviceId();
+
             final TextView imeiview = (TextView) findViewById(R.id.imei);
             imeiview.setText("IMEI NO - " + imei_val);
         } else {
@@ -183,9 +189,13 @@ public class latlang extends AppCompatActivity {
             TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
             final String imei_val =  telephonyManager.getDeviceId();
             final TextView imeiview = (TextView) findViewById(R.id.imei);
+            shareIMEI = imei_val;
 
             longitudeBest = location.getLongitude();
             latitudeBest = location.getLatitude();
+
+            shareLatitudeBest = latitudeBest;
+            sharelongitudeBest = longitudeBest;
 
             runOnUiThread(new Runnable() {
                 @Override
@@ -194,8 +204,15 @@ public class latlang extends AppCompatActivity {
                     latitudeValueBest.setText(latitudeBest + "");
                     imeiview.setText("IMEI NO - " + imei_val);
                     Toast.makeText(latlang.this, "Best Provider update", Toast.LENGTH_SHORT).show();
+
+
                 }
             });
+
+
+
+
+
         }
 
         @Override
@@ -275,5 +292,7 @@ public class latlang extends AppCompatActivity {
 
         }
     };
+
+
 
 }

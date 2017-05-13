@@ -31,6 +31,9 @@ public class event2list extends AppCompatActivity {
     public void registerbutton(View view){
         int positionval = positionid;
         Log.i("hi","pressed register button for id  " + Integer.toString(positionid));
+        Intent myIntent = new Intent(event2list.this, database.class);
+//        myIntent.putExtra("key", position);
+        event2list.this.startActivity(myIntent);
 
 
     }
